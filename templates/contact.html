@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Metadata: Specifies the character encoding and viewport settings for responsive design -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Title of the page -->
+    <title>Contact Form</title>
+
+    <!-- Bootstrap CSS: Adds Bootstrap framework for styling the form -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS: Links to an external stylesheet for additional styling -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <!-- Container: Centers and adds padding to the content -->
+    <div class="container mt-5">
+        <!-- Heading: Title of the form -->
+        <h1 class="text-center">Contact Us</h1>
+
+        <!-- Form: Handles user input and submits it to the server -->
+        <form method="POST" action="{{ url_for('contact') }}">
+            <!-- CSRF Token: Security feature to prevent cross-site request forgery -->
+            {{ form.hidden_tag() }}
+
+            <!-- First Name Field -->
+            <div class="form-group">
+                {{ form.first_name.label(class="form-label") }}  <!-- Label for the first name field -->
+                {{ form.first_name(class="form-control", size=32) }}  <!-- Input field for the first name -->
+                {% for error in form.first_name.errors %}
+                    <small class="text-danger">{{ error }}</small>  <!-- Display validation errors, if any -->
+                {% endfor %}
+            </div>
+
+            <!-- Last Name Field -->
+            <div class="form-group">
+                {{ form.last_name.label(class="form-label") }}  <!-- Label for the last name field -->
+                {{ form.last_name(class="form-control", size=32) }}  <!-- Input field for the last name -->
+                {% for error in form.last_name.errors %}
+                    <small class="text-danger">{{ error }}</small>  <!-- Display validation errors, if any -->
+                {% endfor %}
+            </div>
+
+            <!-- Email Field -->
+            <div class="form-group">
+                {{ form.email.label(class="form-label") }}  <!-- Label for the email field -->
+                {{ form.email(class="form-control", size=32) }}  <!-- Input field for the email -->
+                {% for error in form.email.errors %}
+                    <small class="text-danger">{{ error }}</small>  <!-- Display validation errors, if any -->
+                {% endfor %}
+            </div>
+
+            <!-- Country Field -->
+            <div class="form-group">
+                {{ form.country.label(class="form-label") }}  <!-- Label for the country field -->
+                {{ form.country(class="form-control") }}  <!-- Input field for the country -->
+                {% for error in form.country.errors %}
+                    <small class="text-danger">{{ error }}</small>  <!-- Display validation errors, if any -->
+                {% endfor %}
+            </div>
+
+            <!-- Message Field -->
+            <div class="form-group">
+                {{ form.message.label(class="form-label") }}  <!-- Label for the message field -->
+                {{ form.message(class="form-control", rows=5, cols=32) }}  <!-- Textarea for the message -->
+                {% for error in form.message.errors %}
+                    <small class="text-danger">{{ error }}</small>  <!-- Display validation errors, if any -->
+                {% endfor %}
+            </div>
+
+            <!-- Gender Field -->
+            <div class="form-group">
+                {{ form.gender.label(class="form-label") }}<br>  <!-- Label for the gender field -->
+                {% for subfield in form.gender %}
+                    <div class="form-check form-check-inline">
+                        {{ subfield(class="form-check-input") }}  <!-- Radio button input for gender -->
+                        {{ subfield.label(class="form-check-label") }}  <!-- Label for each radio button -->
+                    </div>
+                {% endfor %}
+                {% for error in form.gender.errors %}
+                    <small class="text-danger">{{ error }}</small>  <!-- Display validation errors, if any -->
+                {% endfor %}
+            </div>
+
+            <!-- Subject Field -->
+            <div class="form-group">
+                {{ form.subject.label(class="form-label") }}<br>  <!-- Label for the subject field -->
+                {% for subfield in form.subject %}
+                    <div class="form-check form-check-inline">
+                        {{ subfield(class="form-check-input") }}  <!-- Checkbox input for subjects -->
+                        {{ subfield.label(class="form-check-label") }}  <!-- Label for each checkbox -->
+                    </div>
+                {% endfor %}
+            </div>
+
+            <!-- Honeypot Field (Hidden): Used to detect spam bots -->
+            <div style="display: none;">
+                {{ form.honeypot() }}
+            </div>
+
+            <!-- Submit Button -->
+            <div class="form-group">
+                {{ form.submit(class="btn btn-primary") }}  <!-- Submit button for the form -->
+            </div>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS and dependencies: Adds Bootstrap's JavaScript functionality -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
