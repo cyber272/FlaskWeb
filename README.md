@@ -2,20 +2,10 @@
 
 ---
 ## Overview
-This project demonstrates how to create a web form using Flask in Python. Each line of code is thoroughly commented for better understanding. 
+This project demonstrates how to create a web form using Flask in Python. 
 
 
 # Project: Form in Python with Flask
-
-#### Duration: 5 days
-- 1 day to learn about Flask: [FreecodeCamp Flask](https://www.youtube.com/watch?v=Qr4QMBUPxWo)
-- 4 days to complete the project.
-
-## Skills developed:
-* Backend: PYTHON programming (introduction to logical structures)
-* Sanitization and validation of a form
-* Implementation of POST and GET methods
-* Implementation of templates with Jinja
 
 ## Problem statement:
 The company Hackers Poulette™ sells DIY kits and accessories for Rasperri Pi. They want to allow their users to contact their technical support. Your mission is to develop a Python script that displays a contact form and processes its response: sanitization, validation, and then sending feedback to the user.
