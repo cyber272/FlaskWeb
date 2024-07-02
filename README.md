@@ -4,6 +4,17 @@
 ## Overview
 This project demonstrates how to create a web form using Flask in Python. 
 
+## Project Structure
+
+- `app.py`: The main Flask application file.
+- `static/`: Directory containing static files (e.g., CSS).
+- `styles.css`: Custom styles for the application.
+- `templates/`: Directory containing HTML templates.
+- `contact_form.html`: The contact form page.
+- `thank_you.html`: The thank you page displayed after a successful submission.
+- `README.md`: Project documentation.
+
+
 
 # Project: Form in Python with Flask
 
