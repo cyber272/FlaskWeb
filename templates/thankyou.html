@@ -4,35 +4,23 @@
     <!-- Meta tags for character set and responsive design -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Title of the webpage -->
     <title>Thank You</title>
     <!-- Link to Bootstrap CSS for styling -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Link to custom static CSS file for additional styling -->
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
     <!-- Container class to center the content and provide margin-top -->
     <div class="container mt-5">
-        <!-- Header for the thank you message, centered -->
         <h1 class="text-center">Thank You for Contacting Us</h1>
-        <!-- Card component to contain the user's submitted information -->
         <div class="card">
-            <!-- Card body to hold the content inside the card -->
             <div class="card-body">
-                <!-- Displaying user's first name -->
                 <p><strong>First Name:</strong> {{ first_name }}</p>
-                <!-- Displaying user's last name -->
                 <p><strong>Last Name:</strong> {{ last_name }}</p>
-                <!-- Displaying user's email -->
                 <p><strong>Email:</strong> {{ email }}</p>
-                <!-- Displaying user's country -->
                 <p><strong>Country:</strong> {{ country }}</p>
-                <!-- Displaying user's message -->
                 <p><strong>Message:</strong> {{ message }}</p>
-                <!-- Displaying user's gender -->
                 <p><strong>Gender:</strong> {{ gender }}</p>
-                <!-- Displaying user's selected subject -->
                 <p><strong>Subject:</strong> {{ subject }}</p>
             </div>
         </div>
