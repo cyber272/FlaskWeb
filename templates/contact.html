@@ -5,92 +5,86 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Title of the page -->
     <title>Contact Form</title>
 
     <!-- Bootstrap CSS: Adds Bootstrap framework for styling the form -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom CSS: Links to an external stylesheet for additional styling -->
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
     <!-- Container: Centers and adds padding to the content -->
     <div class="container mt-5">
-        <!-- Heading: Title of the form -->
         <h1 class="text-center">Contact Us</h1>
 
         <!-- Form: Handles user input and submits it to the server -->
         <form method="POST" action="{{ url_for('contact') }}">
             <!-- CSRF Token: Security feature to prevent cross-site request forgery -->
             {{ form.hidden_tag() }}
-
-            <!-- First Name Field -->
             <div class="form-group">
-                {{ form.first_name.label(class="form-label") }}  <!-- Label for the first name field -->
-                {{ form.first_name(class="form-control", size=32) }}  <!-- Input field for the first name -->
+                {{ form.first_name.label(class="form-label") }}  
+                {{ form.first_name(class="form-control", size=32) }}  
                 {% for error in form.first_name.errors %}
-                    <small class="text-danger">{{ error }}</small>  <!-- Display validation errors, if any -->
+                    <small class="text-danger">{{ error }}</small>  
                 {% endfor %}
             </div>
 
             <!-- Last Name Field -->
             <div class="form-group">
-                {{ form.last_name.label(class="form-label") }}  <!-- Label for the last name field -->
-                {{ form.last_name(class="form-control", size=32) }}  <!-- Input field for the last name -->
+                {{ form.last_name.label(class="form-label") }}  
+                {{ form.last_name(class="form-control", size=32) }}  
                 {% for error in form.last_name.errors %}
-                    <small class="text-danger">{{ error }}</small>  <!-- Display validation errors, if any -->
+                    <small class="text-danger">{{ error }}</small> 
                 {% endfor %}
             </div>
 
             <!-- Email Field -->
             <div class="form-group">
-                {{ form.email.label(class="form-label") }}  <!-- Label for the email field -->
-                {{ form.email(class="form-control", size=32) }}  <!-- Input field for the email -->
+                {{ form.email.label(class="form-label") }}  
+                {{ form.email(class="form-control", size=32) }}
                 {% for error in form.email.errors %}
-                    <small class="text-danger">{{ error }}</small>  <!-- Display validation errors, if any -->
+                    <small class="text-danger">{{ error }}</small>
                 {% endfor %}
             </div>
 
             <!-- Country Field -->
             <div class="form-group">
-                {{ form.country.label(class="form-label") }}  <!-- Label for the country field -->
-                {{ form.country(class="form-control") }}  <!-- Input field for the country -->
+                {{ form.country.label(class="form-label") }} 
+                {{ form.country(class="form-control") }}  
                 {% for error in form.country.errors %}
-                    <small class="text-danger">{{ error }}</small>  <!-- Display validation errors, if any -->
+                    <small class="text-danger">{{ error }}</small>  
                 {% endfor %}
             </div>
 
             <!-- Message Field -->
             <div class="form-group">
-                {{ form.message.label(class="form-label") }}  <!-- Label for the message field -->
-                {{ form.message(class="form-control", rows=5, cols=32) }}  <!-- Textarea for the message -->
+                {{ form.message.label(class="form-label") }}  
+                {{ form.message(class="form-control", rows=5, cols=32) }} 
                 {% for error in form.message.errors %}
-                    <small class="text-danger">{{ error }}</small>  <!-- Display validation errors, if any -->
+                    <small class="text-danger">{{ error }}</small>  
                 {% endfor %}
             </div>
 
             <!-- Gender Field -->
             <div class="form-group">
-                {{ form.gender.label(class="form-label") }}<br>  <!-- Label for the gender field -->
+                {{ form.gender.label(class="form-label") }}<br>  
                 {% for subfield in form.gender %}
                     <div class="form-check form-check-inline">
-                        {{ subfield(class="form-check-input") }}  <!-- Radio button input for gender -->
-                        {{ subfield.label(class="form-check-label") }}  <!-- Label for each radio button -->
+                        {{ subfield(class="form-check-input") }} 
+                        {{ subfield.label(class="form-check-label") }} 
                     </div>
                 {% endfor %}
                 {% for error in form.gender.errors %}
-                    <small class="text-danger">{{ error }}</small>  <!-- Display validation errors, if any -->
+                    <small class="text-danger">{{ error }}</small>  
                 {% endfor %}
             </div>
 
             <!-- Subject Field -->
             <div class="form-group">
-                {{ form.subject.label(class="form-label") }}<br>  <!-- Label for the subject field -->
+                {{ form.subject.label(class="form-label") }}<br> 
                 {% for subfield in form.subject %}
                     <div class="form-check form-check-inline">
-                        {{ subfield(class="form-check-input") }}  <!-- Checkbox input for subjects -->
-                        {{ subfield.label(class="form-check-label") }}  <!-- Label for each checkbox -->
+                        {{ subfield(class="form-check-input") }} 
+                        {{ subfield.label(class="form-check-label") }}
                     </div>
                 {% endfor %}
             </div>
@@ -102,7 +96,7 @@
 
             <!-- Submit Button -->
             <div class="form-group">
-                {{ form.submit(class="btn btn-primary") }}  <!-- Submit button for the form -->
+                {{ form.submit(class="btn btn-primary") }} 
             </div>
         </form>
     </div>
